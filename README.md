@@ -80,7 +80,6 @@ The project includes automated tests using RSpec. To run the tests, navigate to 
    ```shell
   bundle exec rspec
 
-
 ### API Documentation
 
 The API endpoints are documented using Swagger/OpenAPI specification. After starting the Rails server, you can access the API documentation in your browser:
