@@ -44,33 +44,33 @@ To get a local copy of the project up and running, follow these steps:
 
 2. Navigate to the project directory:
 
-  ```shell
+   ```shell
    cd expense-tracker
 
 3. Install the frontend dependencies:
 
-  ```shell
+   ```shell
    npm install
 
 4. Install the backend dependencies:
 
-  ```shell
+   ```shell
    bundle install
 
 5. Set up the database:
 
-  ```shell
+   ```shell
    rails db:create
    rails db:migrate
 
 6. Start the development server:
 
-  ```shell
+   ```shell
    rails server
 
 7. Access the application in your browser:
 
-  ```shell
+   ```shell
    http://localhost:3000
 
 ### Testing
