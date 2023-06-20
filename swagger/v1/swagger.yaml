@@ -1,0 +1,229 @@
+---
+openapi: 3.0.1
+info:
+  title: API V1
+  version: v1
+paths:
+  "/api/budgets":
+    get:
+      summary: list budgets
+      responses:
+        '200':
+          description: successful
+    post:
+      summary: create budget
+      responses:
+        '200':
+          description: successful
+  "/api/budgets/{id}":
+    parameters:
+    - name: id
+      in: path
+      description: id
+      required: true
+      schema:
+        type: string
+    get:
+      summary: show budget
+      responses:
+        '200':
+          description: successful
+    patch:
+      summary: update budget
+      responses:
+        '200':
+          description: successful
+    put:
+      summary: update budget
+      responses:
+        '200':
+          description: successful
+    delete:
+      summary: delete budget
+      responses:
+        '200':
+          description: successful
+  "/api/categories":
+    get:
+      summary: list categories
+      responses:
+        '200':
+          description: successful
+    post:
+      summary: create category
+      responses:
+        '200':
+          description: successful
+  "/api/categories/{id}":
+    parameters:
+    - name: id
+      in: path
+      description: id
+      required: true
+      schema:
+        type: string
+    get:
+      summary: show category
+      responses:
+        '200':
+          description: successful
+    patch:
+      summary: update category
+      responses:
+        '200':
+          description: successful
+    put:
+      summary: update category
+      responses:
+        '200':
+          description: successful
+    delete:
+      summary: delete category
+      responses:
+        '200':
+          description: successful
+  "/api/expenses":
+    get:
+      summary: list expenses
+      responses:
+        '200':
+          description: successful
+    post:
+      summary: create expense
+      responses:
+        '200':
+          description: successful
+  "/api/expenses/{id}":
+    parameters:
+    - name: id
+      in: path
+      description: id
+      required: true
+      schema:
+        type: string
+    get:
+      summary: show expense
+      responses:
+        '200':
+          description: successful
+    patch:
+      summary: update expense
+      responses:
+        '200':
+          description: successful
+    put:
+      summary: update expense
+      responses:
+        '200':
+          description: successful
+    delete:
+      summary: delete expense
+      responses:
+        '200':
+          description: successful
+  "/api/incomes":
+    get:
+      summary: list incomes
+      responses:
+        '200':
+          description: successful
+    post:
+      summary: create income
+      responses:
+        '200':
+          description: successful
+  "/api/incomes/{id}":
+    parameters:
+    - name: id
+      in: path
+      description: id
+      required: true
+      schema:
+        type: string
+    get:
+      summary: show income
+      responses:
+        '200':
+          description: successful
+    patch:
+      summary: update income
+      responses:
+        '200':
+          description: successful
+    put:
+      summary: update income
+      responses:
+        '200':
+          description: successful
+    delete:
+      summary: delete income
+      responses:
+        '200':
+          description: successful
+  "/users/cancel":
+    get:
+      summary: cancel registration
+      responses:
+        '200':
+          description: successful
+  "/users/sign_up":
+    get:
+      summary: new registration
+      responses:
+        '200':
+          description: successful
+  "/users/edit":
+    get:
+      summary: edit registration
+      responses:
+        '200':
+          description: successful
+  "/users":
+    patch:
+      summary: update registration
+      responses:
+        '200':
+          description: successful
+    put:
+      summary: update registration
+      responses:
+        '200':
+          description: successful
+    delete:
+      summary: delete registration
+      responses:
+        '200':
+          description: successful
+    post:
+      summary: create registration
+      responses:
+        '200':
+          description: successful
+  "/api/registrations":
+    post:
+      summary: create registration
+      responses:
+        '200':
+          description: successful
+  "/users/sign_in":
+    get:
+      summary: new session
+      responses:
+        '200':
+          description: successful
+    post:
+      summary: create session
+      responses:
+        '200':
+          description: successful
+  "/users/sign_out":
+    delete:
+      summary: delete session
+      responses:
+        '200':
+          description: successful
+servers:
+- url: https://{defaultHost}
+  variables:
+    defaultHost:
+      default: www.example.com
