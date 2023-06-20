@@ -77,15 +77,15 @@ To get a local copy of the project up and running, follow these steps:
 
 The project includes automated tests using RSpec. To run the tests, navigate to the project directory and execute the following command:
 
- ```shell
- bundle exec rspec
+   ```shell
+   bundle exec rspec
 
 ### API Documentation
 
 The API endpoints are documented using Swagger/OpenAPI specification. After starting the Rails server, you can access the API documentation in your browser:
 
- ```shell
- http://localhost:3000/api-docs/index.html
+   ```shell
+   http://localhost:3000/api-docs/index.html
 
 ### Contributing
 
@@ -101,6 +101,5 @@ Contributions are welcome! If you'd like to contribute to this project, please f
 
 This project is licensed under the MIT License.
 
-```shell
- 
-Feel free to modify and customize the README file to suit your specific project requirements.
+   ```shell
+   Feel free to modify and customize the README file to suit your specific project requirements.
