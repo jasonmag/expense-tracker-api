@@ -41,3 +41,66 @@ To get a local copy of the project up and running, follow these steps:
 
    ```shell
    git clone https://github.com/your-username/expense-tracker.git
+
+2. Navigate to the project directory:
+
+  ```shell
+   cd expense-tracker
+
+3. Install the frontend dependencies:
+
+  ```shell
+   npm install
+
+4. Install the backend dependencies:
+
+  ```shell
+   bundle install
+
+5. Set up the database:
+
+  ```shell
+   rails db:create
+   rails db:migrate
+
+6. Start the development server:
+
+  ```shell
+   rails server
+
+7. Access the application in your browser:
+
+  ```shell
+   http://localhost:3000
+
+### Testing
+
+The project includes automated tests using RSpec. To run the tests, navigate to the project directory and execute the following command:
+
+```shell
+ bundle exec rspec
+
+### API Documentation
+
+The API endpoints are documented using Swagger/OpenAPI specification. After starting the Rails server, you can access the API documentation in your browser:
+
+```shell
+ http://localhost:3000/api-docs/index.html
+
+### Contributing
+
+Contributions are welcome! If you'd like to contribute to this project, please follow these steps:
+
+1. Fork the repository.
+2. Create a new branch for your feature or bug fix.
+3. Make the necessary changes and commit your code.
+4. Push your changes to your forked repository.
+5. Submit a pull request with a detailed description of your changes.
+
+### License
+
+This project is licensed under the MIT License.
+
+```shell
+ 
+Feel free to modify and customize the README file to suit your specific project requirements.
