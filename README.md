@@ -77,6 +77,8 @@ To get a local copy of the project up and running, follow these steps:
 
 The project includes automated tests using RSpec. To run the tests, navigate to the project directory and execute the following command:
 
+   ```shell
+   http://localhost:3000
    bundle exec rspec
 
 ### API Documentation
