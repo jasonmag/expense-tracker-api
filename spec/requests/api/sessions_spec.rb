@@ -5,6 +5,7 @@ RSpec.describe 'api/sessions', type: :request do
   path '/users/sign_in' do
 
     get('new session') do
+      tags 'Sessions'
       response(200, 'successful') do
 
         after do |example|
@@ -19,6 +20,7 @@ RSpec.describe 'api/sessions', type: :request do
     end
 
     post('create session') do
+      tags 'Sessions'
       response(200, 'successful') do
 
         after do |example|
@@ -36,6 +38,7 @@ RSpec.describe 'api/sessions', type: :request do
   path '/users/sign_out' do
 
     delete('delete session') do
+      tags 'Sessions'
       response(200, 'successful') do
 
         after do |example|

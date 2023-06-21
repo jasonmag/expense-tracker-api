@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require 'rails_helper'
+include Rails.application.routes.url_helpers
 
 RSpec.configure do |config|
   # Specify a root folder where Swagger JSON files are generated
@@ -27,7 +28,7 @@ RSpec.configure do |config|
           url: 'https://{defaultHost}',
           variables: {
             defaultHost: {
-              default: 'www.example.com'
+              default: 'localhost:3000'
             }
           }
         }

@@ -5,6 +5,9 @@ RSpec.describe 'api/registrations', type: :request do
   path '/users/cancel' do
 
     get('cancel registration') do
+      tags 'Registrations'
+      produces 'application/json'
+
       response(200, 'successful') do
 
         after do |example|
@@ -22,6 +25,20 @@ RSpec.describe 'api/registrations', type: :request do
   path '/users/sign_up' do
 
     get('new registration') do
+      tags 'Registrations'
+      consumes 'application/json'
+      produces 'application/json'
+
+      parameter name: :user, in: :body, schema: {
+        type: :object,
+        properties: {
+          email: { type: :string },
+          password: { type: :string },
+          password_confirmation: { type: :string }
+        },
+        required: %w[email password password_confirmation]
+      }
+
       response(200, 'successful') do
 
         after do |example|
@@ -39,6 +56,9 @@ RSpec.describe 'api/registrations', type: :request do
   path '/users/edit' do
 
     get('edit registration') do
+      tags 'Registrations'
+      produces 'application/json'
+
       response(200, 'successful') do
 
         after do |example|
@@ -56,6 +76,21 @@ RSpec.describe 'api/registrations', type: :request do
   path '/users' do
 
     patch('update registration') do
+      tags 'Registrations'
+      consumes 'application/json'
+      produces 'application/json'
+
+      parameter name: :user, in: :body, schema: {
+        type: :object,
+        properties: {
+          email: { type: :string },
+          password: { type: :string },
+          password_confirmation: { type: :string },
+          current_password: { type: :string }
+        },
+        required: %w[email password password_confirmation current_password]
+      }
+
       response(200, 'successful') do
 
         after do |example|
@@ -70,6 +105,21 @@ RSpec.describe 'api/registrations', type: :request do
     end
 
     put('update registration') do
+      tags 'Registrations'
+      consumes 'application/json'
+      produces 'application/json'
+
+      parameter name: :user, in: :body, schema: {
+        type: :object,
+        properties: {
+          email: { type: :string },
+          password: { type: :string },
+          password_confirmation: { type: :string },
+          current_password: { type: :string }
+        },
+        required: %w[email password password_confirmation current_password]
+      }
+
       response(200, 'successful') do
 
         after do |example|
@@ -84,6 +134,9 @@ RSpec.describe 'api/registrations', type: :request do
     end
 
     delete('delete registration') do
+      tags 'Registrations'
+      produces 'application/json'
+
       response(200, 'successful') do
 
         after do |example|
@@ -98,6 +151,20 @@ RSpec.describe 'api/registrations', type: :request do
     end
 
     post('create registration') do
+      tags 'Registrations'
+      consumes 'application/json'
+      produces 'application/json'
+
+      parameter name: :user, in: :body, schema: {
+        type: :object,
+        properties: {
+          email: { type: :string },
+          password: { type: :string },
+          password_confirmation: { type: :string }
+        },
+        required: %w[email password password_confirmation]
+      }
+
       response(200, 'successful') do
 
         after do |example|
@@ -115,6 +182,20 @@ RSpec.describe 'api/registrations', type: :request do
   path '/api/registrations' do
 
     post('create registration') do
+      tags 'Registrations'
+      consumes 'application/json'
+      produces 'application/json'
+
+      parameter name: :user, in: :body, schema: {
+        type: :object,
+        properties: {
+          email: { type: :string },
+          password: { type: :string },
+          password_confirmation: { type: :string }
+        },
+        required: %w[email password password_confirmation]
+      }
+      
       response(200, 'successful') do
 
         after do |example|

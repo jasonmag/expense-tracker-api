@@ -5,6 +5,7 @@ RSpec.describe 'api/categories', type: :request do
   path '/api/categories' do
 
     get('list categories') do
+      tags 'Categories'
       response(200, 'successful') do
 
         after do |example|
@@ -19,6 +20,7 @@ RSpec.describe 'api/categories', type: :request do
     end
 
     post('create category') do
+      tags 'Categories'
       response(200, 'successful') do
 
         after do |example|
@@ -38,6 +40,7 @@ RSpec.describe 'api/categories', type: :request do
     parameter name: 'id', in: :path, type: :string, description: 'id'
 
     get('show category') do
+      tags 'Categories'
       response(200, 'successful') do
         let(:id) { '123' }
 
@@ -53,6 +56,7 @@ RSpec.describe 'api/categories', type: :request do
     end
 
     patch('update category') do
+      tags 'Categories'
       response(200, 'successful') do
         let(:id) { '123' }
 
@@ -68,6 +72,7 @@ RSpec.describe 'api/categories', type: :request do
     end
 
     put('update category') do
+      tags 'Categories'
       response(200, 'successful') do
         let(:id) { '123' }
 
@@ -83,6 +88,7 @@ RSpec.describe 'api/categories', type: :request do
     end
 
     delete('delete category') do
+      tags 'Categories'
       response(200, 'successful') do
         let(:id) { '123' }
 

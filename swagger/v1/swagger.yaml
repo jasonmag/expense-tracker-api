@@ -7,11 +7,15 @@ paths:
   "/api/budgets":
     get:
       summary: list budgets
+      tags:
+      - Budgets
       responses:
         '200':
           description: successful
     post:
       summary: create budget
+      tags:
+      - Budgets
       responses:
         '200':
           description: successful
@@ -25,32 +29,44 @@ paths:
         type: string
     get:
       summary: show budget
+      tags:
+      - Budgets
       responses:
         '200':
           description: successful
     patch:
       summary: update budget
+      tags:
+      - Budgets
       responses:
         '200':
           description: successful
     put:
       summary: update budget
+      tags:
+      - Budgets
       responses:
         '200':
           description: successful
     delete:
       summary: delete budget
+      tags:
+      - Budgets
       responses:
         '200':
           description: successful
   "/api/categories":
     get:
       summary: list categories
+      tags:
+      - Categories
       responses:
         '200':
           description: successful
     post:
       summary: create category
+      tags:
+      - Categories
       responses:
         '200':
           description: successful
@@ -64,32 +80,44 @@ paths:
         type: string
     get:
       summary: show category
+      tags:
+      - Categories
       responses:
         '200':
           description: successful
     patch:
       summary: update category
+      tags:
+      - Categories
       responses:
         '200':
           description: successful
     put:
       summary: update category
+      tags:
+      - Categories
       responses:
         '200':
           description: successful
     delete:
       summary: delete category
+      tags:
+      - Categories
       responses:
         '200':
           description: successful
   "/api/expenses":
     get:
       summary: list expenses
+      tags:
+      - Expenses
       responses:
         '200':
           description: successful
     post:
       summary: create expense
+      tags:
+      - Expenses
       responses:
         '200':
           description: successful
@@ -103,32 +131,44 @@ paths:
         type: string
     get:
       summary: show expense
+      tags:
+      - Expenses
       responses:
         '200':
           description: successful
     patch:
       summary: update expense
+      tags:
+      - Expenses
       responses:
         '200':
           description: successful
     put:
       summary: update expense
+      tags:
+      - Expenses
       responses:
         '200':
           description: successful
     delete:
       summary: delete expense
+      tags:
+      - Expenses
       responses:
         '200':
           description: successful
   "/api/incomes":
     get:
       summary: list incomes
+      tags:
+      - Incomes
       responses:
         '200':
           description: successful
     post:
       summary: create income
+      tags:
+      - Incomes
       responses:
         '200':
           description: successful
@@ -142,83 +182,204 @@ paths:
         type: string
     get:
       summary: show income
+      tags:
+      - Incomes
       responses:
         '200':
           description: successful
     patch:
       summary: update income
+      tags:
+      - Incomes
       responses:
         '200':
           description: successful
     put:
       summary: update income
+      tags:
+      - Incomes
       responses:
         '200':
           description: successful
     delete:
       summary: delete income
+      tags:
+      - Incomes
       responses:
         '200':
           description: successful
   "/users/cancel":
     get:
       summary: cancel registration
+      tags:
+      - Registrations
       responses:
         '200':
           description: successful
   "/users/sign_up":
     get:
       summary: new registration
+      tags:
+      - Registrations
+      parameters: []
       responses:
         '200':
           description: successful
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                password:
+                  type: string
+                password_confirmation:
+                  type: string
+              required:
+              - email
+              - password
+              - password_confirmation
   "/users/edit":
     get:
       summary: edit registration
+      tags:
+      - Registrations
       responses:
         '200':
           description: successful
   "/users":
     patch:
       summary: update registration
+      tags:
+      - Registrations
+      parameters: []
       responses:
         '200':
           description: successful
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                password:
+                  type: string
+                password_confirmation:
+                  type: string
+                current_password:
+                  type: string
+              required:
+              - email
+              - password
+              - password_confirmation
+              - current_password
     put:
       summary: update registration
+      tags:
+      - Registrations
+      parameters: []
       responses:
         '200':
           description: successful
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                password:
+                  type: string
+                password_confirmation:
+                  type: string
+                current_password:
+                  type: string
+              required:
+              - email
+              - password
+              - password_confirmation
+              - current_password
     delete:
       summary: delete registration
+      tags:
+      - Registrations
       responses:
         '200':
           description: successful
     post:
       summary: create registration
+      tags:
+      - Registrations
+      parameters: []
       responses:
         '200':
           description: successful
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                password:
+                  type: string
+                password_confirmation:
+                  type: string
+              required:
+              - email
+              - password
+              - password_confirmation
   "/api/registrations":
     post:
       summary: create registration
+      tags:
+      - Registrations
+      parameters: []
       responses:
         '200':
           description: successful
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                password:
+                  type: string
+                password_confirmation:
+                  type: string
+              required:
+              - email
+              - password
+              - password_confirmation
   "/users/sign_in":
     get:
       summary: new session
+      tags:
+      - Sessions
       responses:
         '200':
           description: successful
     post:
       summary: create session
+      tags:
+      - Sessions
       responses:
         '200':
           description: successful
   "/users/sign_out":
     delete:
       summary: delete session
+      tags:
+      - Sessions
       responses:
         '200':
           description: successful
@@ -226,4 +387,4 @@ servers:
 - url: https://{defaultHost}
   variables:
     defaultHost:
-      default: www.example.com
+      default: localhost:3000
