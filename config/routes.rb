@@ -4,8 +4,10 @@ Rails.application.routes.draw do
 
   namespace :api do
     devise_for :users, controllers: { 
-      sessions: 'devise/sessions', 
-      registrations: 'devise/registrations' }
+      sessions: 'users/sessions',
+      registrations: 'users/registrations' }
+    get '/member-data', to: 'members#show'
+
     resources :expenses
     resources :incomes
     resources :categories

@@ -61,3 +61,7 @@ gem "faker", "~> 3.2"
 gem "devise_token_auth", "~> 1.2"
 
 gem "rswag", "~> 2.9"
+
+gem "rack-cors", "~> 2.0"
+
+gem "devise-jwt", "~> 0.11.0"
