@@ -3,11 +3,17 @@ Rails.application.routes.draw do
   mount Rswag::Api::Engine => '/api-docs'
 
   namespace :api do
+    
+    
+  end
+
+  scope 'api' do 
     devise_for :users, controllers: { 
       sessions: 'users/sessions',
       registrations: 'users/registrations' }
-    get '/member-data', to: 'members#show'
 
+    get '/member-data', to: 'members#show'
+    
     resources :expenses
     resources :incomes
     resources :categories

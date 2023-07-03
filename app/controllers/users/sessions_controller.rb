@@ -1,5 +1,5 @@
 # app/controllers/users/sessions_controller.rb
-class Api::Users::SessionsController < Devise::SessionsController
+class Users::SessionsController < Devise::SessionsController
   respond_to :json
 
   private
