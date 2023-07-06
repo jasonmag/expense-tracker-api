@@ -10,10 +10,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_07_04_131212) do
+ActiveRecord::Schema[7.0].define(version: 2023_07_06_161425) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  # General Types across users
+  create_table "account_types", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  # Specific accounts for every users
+  create_table "accounts", force: :cascade do |t|
+    t.string "name"
+    t.bigint "account_types_id"
+    t.string "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "user_id"
+    t.index ["account_types_id"], name: "index_accounts_on_account_types_id"
+    t.index ["user_id"], name: "index_accounts_on_user_id"
+  end
+
+  # Monthly budgets of the user
   create_table "budgets", force: :cascade do |t|
     t.decimal "amount"
     t.bigint "category_id", null: false
@@ -30,6 +50,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_04_131212) do
     t.datetime "updated_at", null: false
   end
 
+  # List of expenses of the user
   create_table "expenses", force: :cascade do |t|
     t.decimal "amount"
     t.date "date"
@@ -37,8 +58,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_04_131212) do
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "category_id"
-    t.index ["category_id"], name: "index_expenses_on_category_id"
+    t.decimal "acct_by"
+    t.decimal "acct_to"
+    t.bigint "transaction_types_id"
+    t.index ["transaction_types_id"], name: "index_expenses_on_transaction_types_id"
     t.index ["user_id"], name: "index_expenses_on_user_id"
   end
 
@@ -52,6 +75,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_04_131212) do
     t.index ["user_id"], name: "index_incomes_on_user_id"
   end
 
+  # For JWT purposes
   create_table "jwt_denylist", force: :cascade do |t|
     t.string "jti", null: false
     t.datetime "exp", null: false
@@ -60,6 +84,17 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_04_131212) do
     t.index ["jti"], name: "index_jwt_denylist_on_jti"
   end
 
+  # Transaction Types for specialized every user
+  create_table "transaction_types", force: :cascade do |t|
+    t.string "name"
+    t.boolean "dr_cr"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_transaction_types_on_user_id"
+  end
+
+  # List of users
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -72,9 +107,12 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_04_131212) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "accounts", "account_types", column: "account_types_id"
+  add_foreign_key "accounts", "users"
   add_foreign_key "budgets", "categories"
   add_foreign_key "budgets", "users"
-  add_foreign_key "expenses", "categories"
+  add_foreign_key "expenses", "transaction_types", column: "transaction_types_id"
   add_foreign_key "expenses", "users"
   add_foreign_key "incomes", "users"
+  add_foreign_key "transaction_types", "users"
 end

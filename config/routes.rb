@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  resources :account_types
+  resources :accounts
+  resources :transaction_types
   mount Rswag::Ui::Engine => '/api-docs'
   mount Rswag::Api::Engine => '/api-docs'
 
