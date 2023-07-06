@@ -10,18 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_07_06_161425) do
+ActiveRecord::Schema[7.0].define(version: 2023_07_06_165625) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  # General Types across users
   create_table "account_types", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  # Specific accounts for every users
   create_table "accounts", force: :cascade do |t|
     t.string "name"
     t.bigint "account_types_id"
@@ -33,7 +31,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_06_161425) do
     t.index ["user_id"], name: "index_accounts_on_user_id"
   end
 
-  # Monthly budgets of the user
   create_table "budgets", force: :cascade do |t|
     t.decimal "amount"
     t.bigint "category_id", null: false
@@ -50,7 +47,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_06_161425) do
     t.datetime "updated_at", null: false
   end
 
-  # List of expenses of the user
   create_table "expenses", force: :cascade do |t|
     t.decimal "amount"
     t.date "date"
@@ -75,7 +71,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_06_161425) do
     t.index ["user_id"], name: "index_incomes_on_user_id"
   end
 
-  # For JWT purposes
   create_table "jwt_denylist", force: :cascade do |t|
     t.string "jti", null: false
     t.datetime "exp", null: false
@@ -84,7 +79,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_06_161425) do
     t.index ["jti"], name: "index_jwt_denylist_on_jti"
   end
 
-  # Transaction Types for specialized every user
   create_table "transaction_types", force: :cascade do |t|
     t.string "name"
     t.boolean "dr_cr"
@@ -94,7 +88,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_06_161425) do
     t.index ["user_id"], name: "index_transaction_types_on_user_id"
   end
 
-  # List of users
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -103,6 +96,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_06_161425) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "name"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
