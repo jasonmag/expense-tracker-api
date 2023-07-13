@@ -8,6 +8,8 @@ class User < ApplicationRecord
   has_many :expenses
   has_many :incomes
   has_many :budgets
+  has_many :account_types
+  has_many :accounts
 
   validates :email, presence: true, uniqueness: true
 end
