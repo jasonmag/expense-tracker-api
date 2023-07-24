@@ -29,7 +29,7 @@ class AccountTypesController < ApplicationController
   # PATCH/PUT /account_types/1
   def update
     if @account_type.update(account_type_params)
-      render json: { status: 'SUCCESS', message: 'Account type updated', expense: @account_type }
+      render json: { status: 'SUCCESS', message: 'Account type updated', account_type: @account_type }
     else
       render json: { status: 'ERROR', message: 'Account type update failed', errors: @account_type.errors.full_messages },
             status: :unprocessable_entity
